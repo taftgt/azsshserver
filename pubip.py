@@ -21,35 +21,27 @@ class MyServer(BaseHTTPRequestHandler):
         inputArg1 = form.getvalue("jsonvm")
         print(inputArg1)
         myJSON = json.loads(inputArg1)
-        #timerTMUX = "tmux new-session -d 'bash /root/www/timer
-.sh'"
+        #timerTMUX = "tmux new-session -d 'bash /root/www/timer.sh'"
         #subprocess.call(["/bin/bash", "-c",timerTMUX])
         ip1 = myJSON[0]['PublicIP']
         print(ip1)
         print('tunnelip1')
-        tunIP1 = "tmux new-session -d 'sshpass -p Ferozataftgt8
-8 ssh -o StrictHostKeyChecking=no radium@"+ip1+" -R9050:localho
-st:5555 -N'"
+        tunIP1 = "tmux new-session -d 'sshpass -p Ferozataftgt88 ssh -o StrictHostKeyChecking=no radium@"+ip1+" -R9050:localhost:5555 -N'"
         print(tunIP1)
         subprocess.call(["/bin/bash", "-c",tunIP1])
         ip2 = myJSON[1]['PublicIP']
         print(ip2)
         print('tunnelip2')
-        tunIP2 = "tmux new-session -d 'sshpass -p Ferozataftgt8
-8 ssh -o StrictHostKeyChecking=no radium@"+ip2+" -R9050:localho
-st:5555 -N'"
+        tunIP2 = "tmux new-session -d 'sshpass -p Ferozataftgt88 ssh -o StrictHostKeyChecking=no radium@"+ip2+" -R9050:localhost:5555 -N'"
         print(tunIP2)
         subprocess.call(["/bin/bash", "-c",tunIP2])
         ip3 = myJSON[2]['PublicIP']
         print(ip3)
         print('tunnelip3')
-        tunIP3 = "tmux new-session -d 'sshpass -p Ferozataftgt8
-8 ssh -o StrictHostKeyChecking=no radium@"+ip3+" -R9050:localho
-st:5555 -N'"
+        tunIP3 = "tmux new-session -d 'sshpass -p Ferozataftgt88 ssh -o StrictHostKeyChecking=no radium@"+ip3+" -R9050:localhost:5555 -N'"
         print(tunIP3)
         subprocess.call(["/bin/bash", "-c",tunIP3])
-        myRespon = "<html><body><h1>POST Request " +ip1+ip2+ip3
- + " Received!</h1></body></html>"
+        myRespon = "<html><body><h1>POST Request " +ip1+ip2+ip3 + " Received!</h1></body></html>"
         self.wfile.write(bytes(myRespon, "utf-8"))
 def run(server_class=HTTPServer, handler_class=MyServer):
     server_address = ('', 17612)
